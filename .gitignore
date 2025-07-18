@@ -1,0 +1,60 @@
+# Dependencies
+node_modules/
+bower_components/
+
+# Build output
+dist/
+build/
+out/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE / Editor settings
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Coverage reports
+coverage/
+
+# Cache files
+.cache/
+.parcel-cache/
+.next/
+.nuxt/
+.svelte-kit/
+.storybook-out/
+.happypack/
+
+# Optional npm cache
+.npm/
+.yarn-cache/
+.pnpm-store/
+
+# Misc
+*.tgz
+*.zip
+*.tar.gz

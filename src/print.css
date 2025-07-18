@@ -1,0 +1,33 @@
+/* print.css */
+
+/* Hide elements with class 'no-print' during printing */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* Add space at the bottom so footer doesn't overlap content */
+.print-content {
+  padding-bottom: 30mm;
+}
+
+/* Footer fixed at bottom for every page */
+@media print {
+  .print-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    font-size: 10pt;
+    border-top: 1px solid #ccc;
+    background: #fff;
+    padding: 8mm 10mm;
+  }
+}
+
+/* Page margins */
+@page {
+  size: A4;
+  margin: 15mm 10mm 25mm 10mm;
+}
