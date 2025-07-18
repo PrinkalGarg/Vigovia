@@ -40,7 +40,7 @@ export default function FinalSummary({ journeyInfo, activities, onRestart }) {
     pageStyle: `
       @page {
         size: A4;
-        margin: 15mm 10mm 20mm 10mm; /* ↓ reduced bottom margin */
+        margin: 15mm 10mm 20mm 10mm; 
       }
       @media print {
         body {
@@ -88,7 +88,6 @@ export default function FinalSummary({ journeyInfo, activities, onRestart }) {
 
   return (
     <div>
-      {/* Printable Area */}
       <div
         ref={componentRef}
         className="print-content bg-white shadow rounded p-6 space-y-10 max-w-6xl mx-auto"
@@ -132,11 +131,8 @@ export default function FinalSummary({ journeyInfo, activities, onRestart }) {
           multiplyByTravelers={true}
         />
 
-        {/* Print Footer (fixed for every page via print CSS) */}
         <PrintFooter />
       </div>
-
-      {/* Screen-only Actions */}
       <div className="text-center mt-8 space-x-4 no-print">
         <button
           onClick={onRestart}
@@ -152,7 +148,6 @@ export default function FinalSummary({ journeyInfo, activities, onRestart }) {
         </button>
       </div>
 
-      {/* Screen Footer */}
       <div className="no-print mt-10">
         <JourneyFooterHardcoded />
       </div>
@@ -160,23 +155,19 @@ export default function FinalSummary({ journeyInfo, activities, onRestart }) {
   );
 }
 
-/* Print footer that matches JourneyFooterHardcoded */
 function PrintFooter() {
   return (
     <div className="print-footer">
       <div className="print-footer__inner">
-        {/* Left */}
         <div className="print-footer__block text-left leading-snug">
           <div className="print-footer__title">Vigovia Tech Pvt. Ltd</div>
           <div>Registered Office: Hd-109 Cinnabar Hills,</div>
           <div>Links Business Park, Karnataka, India.</div>
         </div>
-        {/* Middle */}
         <div className="print-footer__block text-left">
           <div><strong>Phone:</strong> +91-99X9999999</div>
           <div><strong>Email ID:</strong> Contact@Vigovia.Com</div>
         </div>
-        {/* Right */}
         <div className="print-footer__block text-right">
           <img
             src="/logo.png"

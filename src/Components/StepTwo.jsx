@@ -3,7 +3,6 @@ import { useState } from "react";
 const TIME_SLOTS = ["Morning", "Afternoon", "Evening"];
 
 export default function StepTwo({ totalDays, onBack, onFinish }) {
-  // Each day → { Morning: [""], Afternoon: [""], Evening: [""] }
   const initialState = Array.from({ length: totalDays }, () => ({
     Morning: [""],
     Afternoon: [""],

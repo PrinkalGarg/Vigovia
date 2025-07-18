@@ -3,7 +3,6 @@ import React from "react";
 export default function ImportantNotesAndScope() {
   return (
     <div className="max-w-5xl mx-auto p-6 space-y-10 bg-white">
-      {/* Important Notes */}
       <section>
         <h2 className="text-lg sm:text-xl font-bold mb-4">
           Important <span className="text-purple-700">Notes</span>
@@ -57,7 +56,6 @@ export default function ImportantNotesAndScope() {
         </div>
       </section>
 
-      {/* Scope of Service */}
       <section>
         <h2 className="text-lg sm:text-xl font-bold mb-4">
           Scope Of <span className="text-purple-700">Service</span>

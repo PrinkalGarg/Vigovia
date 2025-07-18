@@ -20,21 +20,16 @@ const Navbar = () => {
   };
 
   const navLinkStyle = {
-    color: "#FBF4FF", // Light purple for contrast
+    color: "#FBF4FF",
   };
 
   return (
-    <nav
-      className="shadow-md"
-      style={{ backgroundColor: "#321E5D" }} // Navbar background color
-    >
+    <nav className="shadow-md" style={{ backgroundColor: "#321E5D" }}>
       <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-        {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
           <img src="/logo.png" alt="Vigovia Logo" className="h-10" />
         </Link>
 
-        {/* Hamburger (Mobile) */}
         <div className="md:hidden">
           <button
             onClick={() => setMenuOpen(!menuOpen)}
@@ -65,7 +60,6 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-6">
           <Link to="/" style={navLinkStyle} className="font-medium hover:underline">
             Home
@@ -110,7 +104,6 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Dropdown */}
       {menuOpen && (
         <div className="md:hidden px-4 pb-4 space-y-3 bg-[#680099]">
           <Link to="/" className="block text-white" onClick={() => setMenuOpen(false)}>

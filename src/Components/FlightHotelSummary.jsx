@@ -1,44 +1,18 @@
 import React from "react";
 
-/* ------------------------------------------------------------------ */
-/* Types (for reference / TS users)
- *
- * Flight = {
- *   date: string;          // e.g. "Thu 10 Jan'24"  OR ISO -> you'll format
- *   airline: string;       // e.g. "Fly Air India"
- *   fromCode: string;      // e.g. "DEL"
- *   toCode: string;        // e.g. "SIN"
- *   note?: string;         // optional per-row note (rare)
- * };
- *
- * Hotel = {
- *   city: string;
- *   checkIn: string;       // e.g. "24/02/2024"
- *   checkOut: string;
- *   nights: number | string;
- *   name: string;          // hotel name
- * };
- */
-/* ------------------------------------------------------------------ */
-
-/* ===== Helpers ==================================================== */
 const formatFlightRoute = (f) =>
   `${f.airline} From ${f.fromCode ? `Delhi (${f.fromCode})` : ""} To ${
     f.toCode ? `Singapore (${f.toCode})` : ""
   }`.replace("  ", " ").trim();
 
-/* ===== Flight Row ================================================= */
 function FlightRow({ flight }) {
   return (
     <div className="w-full flex items-stretch rounded-xl border border-purple-300 overflow-hidden bg-white shadow-sm">
-      {/* Date pill */}
       <div className="bg-purple-50 px-4 py-3 flex items-center border-r border-purple-300">
         <span className="text-purple-700 text-sm font-semibold whitespace-nowrap">
           {flight.date || "-"}
         </span>
       </div>
-
-      {/* Main text */}
       <div className="flex-1 px-4 py-3 text-gray-800 text-sm sm:text-base font-medium">
         {flight.airline ? (
           <>
@@ -54,14 +28,12 @@ function FlightRow({ flight }) {
   );
 }
 
-/* ===== Flight Summary Section ==================================== */
 function FlightSummarySection({ flights = [], note }) {
   return (
     <section className="w-full mb-10">
       <h2 className="text-lg sm:text-xl font-bold mb-4">
         Flight <span className="text-purple-700">Summary</span>
       </h2>
-
       <div className="space-y-3">
         {flights.length ? (
           flights.map((f, i) => <FlightRow key={i} flight={f} />)
@@ -69,7 +41,6 @@ function FlightSummarySection({ flights = [], note }) {
           <p className="text-sm text-gray-500 italic">No flights.</p>
         )}
       </div>
-
       {note ? (
         <p className="mt-3 text-xs text-gray-500 italic">{note}</p>
       ) : (
@@ -82,7 +53,6 @@ function FlightSummarySection({ flights = [], note }) {
   );
 }
 
-/* ===== Hotel Table Row =========================================== */
 function HotelRow({ row }) {
   return (
     <tr className="even:bg-purple-50/50">
@@ -97,7 +67,6 @@ function HotelRow({ row }) {
   );
 }
 
-/* ===== Hotel Bookings Section ==================================== */
 function HotelBookingsSection({ hotels = [], notes }) {
   const defaultNotes = [
     "All hotels are tentative and can be replaced with similar.",
@@ -113,7 +82,6 @@ function HotelBookingsSection({ hotels = [], notes }) {
       <h2 className="text-lg sm:text-xl font-bold mb-4">
         Hotel <span className="text-purple-700">Bookings</span>
       </h2>
-
       <div className="overflow-x-auto rounded-2xl border border-purple-300 shadow-sm bg-white">
         <table className="w-full text-left border-collapse">
           <thead>
@@ -141,8 +109,6 @@ function HotelBookingsSection({ hotels = [], notes }) {
           </tbody>
         </table>
       </div>
-
-      {/* Notes */}
       <ol className="mt-4 list-decimal ml-5 text-xs text-gray-600 space-y-1">
         {noteList.map((n, i) => (
           <li key={i}>{n}</li>
@@ -152,17 +118,6 @@ function HotelBookingsSection({ hotels = [], notes }) {
   );
 }
 
-/* ===== Combined Export =========================================== */
-/**
- * FlightHotelSummary
- * 
- * Props:
- *   flights: Flight[]
- *   hotels: Hotel[]
- *   flightNote?: string
- *   hotelNotes?: string[]
- *   className?: string
- */
 export default function FlightHotelSummary({
   flights = [],
   hotels = [],

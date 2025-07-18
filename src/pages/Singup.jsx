@@ -20,7 +20,6 @@ const Signup = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // 🔐 TODO: Replace with actual API call
     if (formData.fullName && formData.email && formData.password.length >= 6) {
       localStorage.setItem("token", "fakeTokenForDemo"); // Store dummy token
       navigate("/plan-journey");
@@ -32,21 +31,18 @@ const Signup = () => {
   return (
     <div className="min-h-screen bg-[#FBF4FF] flex items-center justify-center px-4">
       <div className="w-full max-w-md bg-white shadow-xl rounded-2xl p-8">
-        {/* Logo & Heading */}
         <div className="flex flex-col items-center mb-6">
           <img src="/logo.png" alt="Vigovia" className="h-14 mb-2" />
           <h2 className="text-2xl font-bold text-[#321E5D]">Create Your Account</h2>
           <p className="text-sm text-gray-500">Sign up to start planning your journey</p>
         </div>
 
-        {/* Error Message */}
         {error && (
           <div className="mb-4 bg-red-100 text-red-600 p-2 rounded-md text-sm">
             {error}
           </div>
         )}
 
-        {/* Signup Form */}
         <form onSubmit={handleSubmit} className="space-y-5">
           <div>
             <label className="block text-sm font-medium text-[#321E5D] mb-1">Full Name</label>

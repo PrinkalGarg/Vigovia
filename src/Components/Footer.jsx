@@ -1,10 +1,8 @@
-// src/Components/Footer.jsx
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube } from "react-icons/fa";
 
 const Footer = () => {
   return (
     <footer className="bg-[#FBF4FF] text-sm text-[#321E5D]">
-      {/* Upper Grid Section */}
       <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-2 md:grid-cols-5 gap-6 border-b border-gray-300">
         <div>
           <h4 className="font-semibold mb-2">Our offerings</h4>
@@ -56,8 +54,7 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Contact and Help Row */}
-      <div className="max-w-7xl mx-auto px-6 py-4  flex flex-col md:flex-row justify-center items-start md:items-center text-sm">
+      <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row justify-center items-start md:items-center text-sm">
         <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-6">
           <button className="bg-[#321E5D] text-white px-3 py-1 rounded-full text-xs font-semibold">
             Need help? Call us
@@ -77,7 +74,6 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Bottom Bar */}
       <div className="bg-[#321E5D] text-white text-xs">
         <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-center">
           <div className="flex items-center gap-2 mb-2 md:mb-0">

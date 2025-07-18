@@ -1,6 +1,5 @@
 import React, { useMemo } from "react";
 
-/** Format date like "27th November" */
 function formatDisplayDate(isoDate) {
   if (!isoDate) return "";
   const d = new Date(isoDate);
@@ -14,7 +13,6 @@ function formatDisplayDate(isoDate) {
   return `${day}${suf} ${month}`;
 }
 
-/** Timeline column: 3 rows with label | dot+line | activities */
 function SlotTimelineColumn({ activities }) {
   const slots = ["Morning", "Afternoon", "Evening"];
   return (
@@ -27,14 +25,10 @@ function SlotTimelineColumn({ activities }) {
             key={slot}
             className="grid grid-cols-[auto_16px_1fr] items-start gap-2"
           >
-            {/* Slot label */}
             <h5 className="font-semibold text-gray-700 text-sm leading-snug pr-2 text-right">
               {slot}
             </h5>
-
-            {/* Dot + vertical connector */}
             <div className="relative flex justify-center">
-              {/* Connector line segment */}
               <div
                 className={[
                   "absolute left-1/2 -translate-x-1/2 w-px bg-indigo-300",
@@ -45,11 +39,8 @@ function SlotTimelineColumn({ activities }) {
                     : "inset-y-0",
                 ].join(" ")}
               />
-              {/* Dot */}
               <span className="relative z-10 mt-1 h-3 w-3 rounded-full bg-indigo-600 border-2 border-white shadow" />
             </div>
-
-            {/* Activities */}
             <div className="leading-snug">
               {has ? (
                 <ul className="list-disc ml-5 text-sm text-gray-600 space-y-0.5">
@@ -68,20 +59,15 @@ function SlotTimelineColumn({ activities }) {
   );
 }
 
-/** One Day Row */
 function ItineraryDayRow({ dayNumber, date, subText, imageUrl, activities }) {
   return (
     <div className="w-full flex items-start gap-4 py-8 border-b last:border-b-0">
-      {/* Left rotated Day pill */}
       <div className="w-14 flex-shrink-0 flex items-center justify-center">
-  <div className="rotate-[-90deg] origin-center px-4 py-1 mt-14 rounded-full bg-indigo-700 text-white text-xl font-bold whitespace-nowrap">
-    Day {dayNumber}
-  </div>
-</div>
-
-      {/* Main content: image + timeline */}
+        <div className="rotate-[-90deg] origin-center px-4 py-1 mt-14 rounded-full bg-indigo-700 text-white text-xl font-bold whitespace-nowrap">
+          Day {dayNumber}
+        </div>
+      </div>
       <div className="flex-1 grid grid-cols-[auto_1fr] gap-6 items-start">
-        {/* Image + date info */}
         <div className="flex flex-col items-center text-center">
           <img
             src={imageUrl}
@@ -99,8 +85,6 @@ function ItineraryDayRow({ dayNumber, date, subText, imageUrl, activities }) {
             </p>
           )}
         </div>
-
-        {/* Timeline */}
         <SlotTimelineColumn activities={activities} />
       </div>
     </div>
@@ -108,7 +92,7 @@ function ItineraryDayRow({ dayNumber, date, subText, imageUrl, activities }) {
 }
 
 export default function ItineraryFromFinalReport({ journeyInfo, activities }) {
-  const imageUrl = "beach.jpeg"; // ✅ Same image for all days from public folder
+  const imageUrl = "beach.jpeg";
   const daysData = useMemo(() => {
     if (!journeyInfo || !Array.isArray(activities)) return [];
     const { toCity, startDate } = journeyInfo;

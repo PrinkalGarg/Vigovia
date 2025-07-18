@@ -1,24 +1,6 @@
 import React, { useMemo } from "react";
 
-/**
- * ActivitySummaryTable
- *
- * Props:
- *  journeyInfo: {
- *    toCity: string,
- *    // other fields ignored here
- *  }
- *  activities: Array<{
- *    Morning: string[];
- *    Afternoon: string[];
- *    Evening: string[];
- *  }>
- *  cityOverride?: string                // use instead of journeyInfo.toCity
- *  slotTypeMap?: Record<string,string>  // e.g. {Morning:"Nature/Sightseeing",Afternoon:"Excursion",Evening:"Leisure"}
- *  slotTimeMap?: Record<string,string>  // e.g. {Morning:"1-2 Hours",Afternoon:"2-3 Hours",Evening:"3-4 Hours"}
- *  defaultTime?: string                 // fallback for rows, default "2-3 Hours"
- *  showFooter?: boolean                 // default true
- */
+
 export default function ActivitySummaryTable({
   journeyInfo,
   activities,
@@ -30,7 +12,6 @@ export default function ActivitySummaryTable({
 }) {
   const city = cityOverride || journeyInfo?.toCity || "-";
 
-  // Flatten StepTwo structure -> table rows
   const rows = useMemo(() => {
     if (!Array.isArray(activities)) return [];
     const flat = [];
@@ -42,9 +23,9 @@ export default function ActivitySummaryTable({
           flat.push({
             city,
             activity: act.trim(),
-            type: slotTypeMap?.[slot] ?? slot, // map or fallback to slot
+            type: slotTypeMap?.[slot] ?? slot,
             time: slotTimeMap?.[slot] ?? defaultTime,
-            day: dayIdx + 1, // not shown, but available
+            day: dayIdx + 1,
             slot,
           });
         });
@@ -55,7 +36,6 @@ export default function ActivitySummaryTable({
 
   return (
     <div className="max-w-5xl mx-auto p-6 space-y-10 bg-white">
-      {/* Activity Table Heading */}
       <section>
         <h2 className="text-lg sm:text-xl font-bold mb-4">
           Activity <span className="text-purple-700">Table</span>
@@ -99,7 +79,6 @@ export default function ActivitySummaryTable({
         </div>
       </section>
 
-      {/* Terms & Conditions Link */}
       <section className="text-sm">
         <h3 className="font-semibold">
           Terms and <span className="text-purple-700">Conditions</span>

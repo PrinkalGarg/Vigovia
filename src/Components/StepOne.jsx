@@ -22,7 +22,6 @@ export default function StepOne({ initialData = {}, onNext }) {
     if (!form.fromCity.trim()) e.fromCity = "Required.";
     if (!form.toCity.trim()) e.toCity = "Required.";
 
-    // date validation: must be valid ISO date string (yyyy-mm-dd)
     if (!form.startDate) {
       e.startDate = "Required.";
     } else if (isNaN(Date.parse(form.startDate))) {
@@ -45,7 +44,6 @@ export default function StepOne({ initialData = {}, onNext }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!validate()) return;
-    // normalize numeric fields
     const cleaned = {
       ...form,
       travelers: Number(form.travelers),
@@ -63,7 +61,6 @@ export default function StepOne({ initialData = {}, onNext }) {
         Plan Your Journey – Details
       </h2>
 
-      {/* From City */}
       <div>
         <label className="block text-sm font-medium text-gray-700 mb-1">
           From City
@@ -82,7 +79,6 @@ export default function StepOne({ initialData = {}, onNext }) {
         )}
       </div>
 
-      {/* To City */}
       <div>
         <label className="block text-sm font-medium text-gray-700 mb-1">
           To City
@@ -100,8 +96,6 @@ export default function StepOne({ initialData = {}, onNext }) {
           <p className="mt-1 text-xs text-red-600">{errors.toCity}</p>
         )}
       </div>
-
-      {/* Start Date */}
       <div>
         <label className="block text-sm font-medium text-gray-700 mb-1">
           Start Date
@@ -119,7 +113,6 @@ export default function StepOne({ initialData = {}, onNext }) {
         )}
       </div>
 
-      {/* Travelers */}
       <div>
         <label className="block text-sm font-medium text-gray-700 mb-1">
           Total Travelers
@@ -139,7 +132,6 @@ export default function StepOne({ initialData = {}, onNext }) {
         )}
       </div>
 
-      {/* Days */}
       <div>
         <label className="block text-sm font-medium text-gray-700 mb-1">
           Total Days
@@ -160,7 +152,6 @@ export default function StepOne({ initialData = {}, onNext }) {
         )}
       </div>
 
-      {/* Submit */}
       <div className="pt-2">
         <button
           type="submit"

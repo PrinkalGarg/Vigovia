@@ -3,14 +3,12 @@ import React from "react";
 const Homepage = () => {
   return (
     <div className="font-sans text-gray-800">
-      {/* Hero Section (uses <img> instead of CSS background for reliable rendering) */}
       <section className="relative h-[70vh] overflow-hidden">
   <img
-    src="/bg.jpg"  // Make sure this is in /public folder
+    src="/bg.jpg"  
     alt="New Zealand Landscape"
     className="absolute inset-0 w-full h-full object-cover"
   />
-  {/* Gradient Overlay for Green Blend */}
   <div className="absolute inset-0 bg-gradient-to-b from-green-900/70 via-green-700/50 to-transparent" />
   
   <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4">
@@ -24,7 +22,6 @@ const Homepage = () => {
 </section>
 
 
-      {/* About Section */}
       <section className="py-16 max-w-6xl mx-auto px-4">
         <h2 className="text-3xl font-bold mb-8 text-center">
           About <span className="text-purple-600">New Zealand</span>
@@ -55,7 +52,6 @@ const Homepage = () => {
         </div>
       </section>
 
-      {/* Tours Section */}
       <section className="bg-gray-50 py-16">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl font-bold mb-8 text-center">
@@ -82,7 +78,6 @@ const Homepage = () => {
         </div>
       </section>
 
-      {/* Activities Section */}
       <section className="py-16 max-w-6xl mx-auto px-4">
         <h2 className="text-3xl font-bold mb-8">
           Top <span className="text-purple-600">Activities And Attractions</span>
@@ -108,7 +103,6 @@ const Homepage = () => {
         </div>
       </section>
 
-      {/* Seasonal Info */}
       <section className="bg-gray-50 py-16">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl font-bold mb-8">
@@ -130,7 +124,6 @@ const Homepage = () => {
         </div>
       </section>
 
-      {/* Blogs */}
       <section className="py-16 max-w-6xl mx-auto px-4">
         <h2 className="text-3xl font-bold mb-8">
           Blogs Related To <span className="text-purple-600">New Zealand</span>
@@ -149,7 +142,6 @@ const Homepage = () => {
         </div>
       </section>
 
-      {/* FAQ */}
       <section className="bg-gray-50 py-16">
         <div className="max-w-6xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-8">
@@ -168,7 +160,6 @@ const Homepage = () => {
         </div>
       </section>
 
-      {/* Explore More */}
       <section className="py-16 max-w-6xl mx-auto px-4 text-center">
         <h2 className="text-3xl font-bold mb-8">
           Explore <span className="text-purple-600">More</span>

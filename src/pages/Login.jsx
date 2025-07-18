@@ -16,7 +16,6 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Simulated login check
     if (formData.email === "test@vigovia.com" && formData.password === "123456") {
       localStorage.setItem("token", "demo_token");
       navigate("/plan-journey");
@@ -28,21 +27,18 @@ const Login = () => {
   return (
     <div className="min-h-screen flex items-center justify-center px-4" style={{ backgroundColor: "#FBF4FF" }}>
       <div className="w-full max-w-md bg-white shadow-xl rounded-2xl p-8">
-        {/* Logo & Heading */}
         <div className="flex flex-col items-center mb-6">
           <img src="/logo.png" alt="Vigovia" className="h-14 mb-2" />
           <h2 className="text-2xl font-bold" style={{ color: "#321E5D" }}>Welcome Back</h2>
           <p className="text-sm" style={{ color: "#680099" }}>Log in to plan your next journey</p>
         </div>
 
-        {/* Error Message */}
         {error && (
           <div className="mb-4 bg-red-100 text-red-600 p-2 rounded-md text-sm">
             {error}
           </div>
         )}
 
-        {/* Login Form */}
         <form onSubmit={handleSubmit} className="space-y-5">
           <div>
             <label className="block text-sm font-medium mb-1" style={{ color: "#321E5D" }}>
